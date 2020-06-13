@@ -81,7 +81,7 @@ public class LockerTest {
         Locker locker = new Locker(box);
         Bag myBag = new Bag();
         Ticket ticket = locker.save(myBag);
-        Bag bag = locker.get(ticket);
+        locker.get(ticket);
 
 
         //then

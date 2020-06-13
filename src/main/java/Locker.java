@@ -25,10 +25,14 @@ public class Locker {
     }
 
     public Bag get(Ticket ticket) throws Exception {
+        if (!ticket.getValid()) {
+            throw  new Exception("fail to get the bag, invalid ticket");
+        }
         Optional<Box> optionalBox = boxes.stream().filter(box -> box.getId() == ticket.getBoxId()).findFirst();
         if (optionalBox.isPresent()) {
             Box box=optionalBox.get();
             Bag bag = box.get();
+            ticket.setInvalid();
             return bag;
         }
         throw  new Exception("fail to get the bag, wrong ticket");
