@@ -25,6 +25,12 @@ public class Locker {
     }
 
     public Bag get(Ticket ticket) {
+        Optional<Box> optionalBox = boxes.stream().filter(box -> box.getId() == ticket.getBoxId()).findFirst();
+        if (optionalBox.isPresent()) {
+            Box box=optionalBox.get();
+            Bag bag = box.get();
+            return bag;
+        }
         return null;
     }
 }

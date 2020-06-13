@@ -17,4 +17,17 @@ public class Box {
         isAvailable = false;
         return new Ticket(this.id);
     }
+
+    public String getId() {
+        return this.id;
+    }
+
+    private void freeBox() {
+        isAvailable=true;
+    }
+
+    public Bag get() {
+        freeBox();
+        return bag;
+    }
 }

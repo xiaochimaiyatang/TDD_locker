@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="945d3d1f-a377-4ebb-8f52-23021acbbf33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Box.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Locker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Locker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LockerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LockerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Box.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Locker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Locker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/LockerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LockerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LockerTest.should_save_bag_success_when_have_empty_box">
+  <component name="RunManager" selected="JUnit.LockerTest">
     <configuration name="LockerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
@@ -78,21 +82,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LockerTest.should_pickup_success_given_ticket_is_invaild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LockerTest.should_get_bag_successfully_when_have_correct_ticket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LockerTest" />
-      <option name="METHOD_NAME" value="should_pickup_success_given_ticket_is_invaild" />
+      <option name="METHOD_NAME" value="should_get_bag_successfully_when_have_correct_ticket" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LockerTest.should_pickup_success_given_ticket_is_used_once" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LockerTest.should_pickup_success_given_ticket_is_invaild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LockerTest" />
-      <option name="METHOD_NAME" value="should_pickup_success_given_ticket_is_used_once" />
+      <option name="METHOD_NAME" value="should_pickup_success_given_ticket_is_invaild" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LockerTest.should_save_bag_success_when_have_empty_box" />
         <item itemvalue="JUnit.LockerTest" />
+        <item itemvalue="JUnit.LockerTest.should_get_bag_successfully_when_have_correct_ticket" />
+        <item itemvalue="JUnit.LockerTest.should_save_bag_success_when_have_empty_box" />
         <item itemvalue="JUnit.LockerTest.should_save_bag_success" />
         <item itemvalue="JUnit.LockerTest.should_pickup_success_given_ticket_is_invaild" />
-        <item itemvalue="JUnit.LockerTest.should_pickup_success_given_ticket_is_used_once" />
       </list>
     </recent_temporary>
   </component>
@@ -168,28 +172,28 @@
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
     <state x="-1027" y="649" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592052264718" />
-    <state width="1638" height="270" key="GridCell.Tab.0.bottom" timestamp="1592052533392">
-      <screen x="-1680" y="413" width="1680" height="1027" />
+    <state width="1698" height="262" key="GridCell.Tab.0.bottom" timestamp="1592054903060">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1698" height="262" key="GridCell.Tab.0.bottom/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005784" />
+    <state width="1698" height="262" key="GridCell.Tab.0.bottom/0.23.1792.1054@0.23.1792.1054" timestamp="1592054903060" />
     <state width="1608" height="261" key="GridCell.Tab.0.bottom/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155366" />
     <state width="1638" height="270" key="GridCell.Tab.0.bottom/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592052533392" />
-    <state width="1638" height="270" key="GridCell.Tab.0.center" timestamp="1592052533391">
-      <screen x="-1680" y="413" width="1680" height="1027" />
+    <state width="1698" height="262" key="GridCell.Tab.0.center" timestamp="1592054903055">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1698" height="262" key="GridCell.Tab.0.center/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005783" />
+    <state width="1698" height="262" key="GridCell.Tab.0.center/0.23.1792.1054@0.23.1792.1054" timestamp="1592054903055" />
     <state width="1608" height="261" key="GridCell.Tab.0.center/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155365" />
     <state width="1638" height="270" key="GridCell.Tab.0.center/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592052533391" />
-    <state width="1638" height="270" key="GridCell.Tab.0.left" timestamp="1592052533390">
-      <screen x="-1680" y="413" width="1680" height="1027" />
+    <state width="1698" height="262" key="GridCell.Tab.0.left" timestamp="1592054903052">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1698" height="262" key="GridCell.Tab.0.left/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005783" />
+    <state width="1698" height="262" key="GridCell.Tab.0.left/0.23.1792.1054@0.23.1792.1054" timestamp="1592054903052" />
     <state width="1608" height="261" key="GridCell.Tab.0.left/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155362" />
     <state width="1638" height="270" key="GridCell.Tab.0.left/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592052533390" />
-    <state width="1638" height="270" key="GridCell.Tab.0.right" timestamp="1592052533391">
-      <screen x="-1680" y="413" width="1680" height="1027" />
+    <state width="1698" height="262" key="GridCell.Tab.0.right" timestamp="1592054903058">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1698" height="262" key="GridCell.Tab.0.right/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005784" />
+    <state width="1698" height="262" key="GridCell.Tab.0.right/0.23.1792.1054@0.23.1792.1054" timestamp="1592054903058" />
     <state width="1608" height="261" key="GridCell.Tab.0.right/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155366" />
     <state width="1638" height="270" key="GridCell.Tab.0.right/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592052533391" />
     <state width="1638" height="345" key="GridCell.Tab.1.bottom" timestamp="1592052056623">
@@ -213,13 +217,15 @@
     </state>
     <state x="58" y="51" key="Maven.ArtifactSearchDialog/0.23.1792.1054@0.23.1792.1054" timestamp="1591973241709" />
     <state x="58" y="51" key="Maven.ArtifactSearchDialog/0.23.1792.1055@0.23.1792.1055" timestamp="1591972770794" />
-    <state x="-1352" y="508" key="SettingsEditor" timestamp="1592051145518">
-      <screen x="-1680" y="413" width="1680" height="1027" />
+    <state x="256" y="23" key="SettingsEditor" timestamp="1592053520236">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
+    <state x="256" y="23" key="SettingsEditor/0.23.1792.1054@0.23.1792.1054" timestamp="1592053520236" />
     <state x="-1352" y="508" key="SettingsEditor/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592051145518" />
-    <state width="498" height="451" key="SwitcherDM" timestamp="1592053107738">
-      <screen x="-1680" y="413" width="1680" height="1027" />
+    <state width="750" height="600" key="SwitcherDM" timestamp="1592054557700">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
+    <state width="750" height="600" key="SwitcherDM/0.23.1792.1054@0.23.1792.1054" timestamp="1592054557700" />
     <state width="498" height="451" key="SwitcherDM/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592053107738" />
     <state x="579" y="171" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592049689378">
       <screen x="0" y="23" width="1792" height="1054" />
