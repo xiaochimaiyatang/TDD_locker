@@ -1,20 +1,24 @@
 import sun.font.TrueTypeFont;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
+import java.util.HashMap;
+import java.util.Map;
+
+
 
 public class Locker {
-    public static void main(String[] args) {
+    private int size;
+    private Map<Ticket,Pack> savePack=new HashMap<Ticket,Pack>();
 
+    public Locker(int size){
+        this.size=size;
     }
 
-    public static Boolean save_bag(int TotalBox,int RemainBoxNum) {
-        Boolean SaveResult= TRUE;
-        if (RemainBoxNum>0){
-            TotalBox-=1;
-        }else{
-            SaveResult= FALSE;
+    public Ticket save(Pack pack){
+        if (size==0){
+            return null;
         }
-        return SaveResult;
+        Ticket ticket=new Ticket();
+        savePack.put(ticket,pack);
+        return ticket;
     }
 }
