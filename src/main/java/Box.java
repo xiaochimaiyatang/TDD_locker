@@ -8,14 +8,20 @@ public class Box {
         this.isAvailable = true;
     }
 
-    public boolean isAvailable() {
+    public Boolean isAvailable() {
         return isAvailable;
     }
 
     public Ticket save(Bag bag) {
         this.bag = bag;
-        isAvailable = false;
+        this.isAvailable = false;
         return new Ticket(this.id);
+    }
+
+    public Bag get(Ticket ticket) {
+        freeBox();
+        ticket.setInvalid();
+        return bag;
     }
 
     public String getId() {
@@ -23,11 +29,7 @@ public class Box {
     }
 
     private void freeBox() {
-        isAvailable=true;
+        isAvailable = true;
     }
 
-    public Bag get() {
-        freeBox();
-        return bag;
-    }
 }

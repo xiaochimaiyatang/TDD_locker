@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Optional;
 
 public class Locker {
     private List<Box> boxes;
@@ -9,32 +8,26 @@ public class Locker {
     }
 
     public Ticket save(Bag bag) throws Exception {
-        Optional<Box> boxOptional = boxes.stream().filter(box -> box.isAvailable()).findFirst();
-        if (boxOptional.isPresent()) {
-            Box box1 = boxOptional.get();
-            System.out.println(box1);
-            Ticket ticket = box1.save(bag);
-            return ticket;
-        }
-        throw  new Exception("fail to save the bag, no Empty Box");
+        return boxes.stream()
+                .filter(b -> b.isAvailable())
+                .findFirst()
+                .orElseThrow(() -> new Exception("fail to save the bag, no Empty Box"))
+                .save(bag);
     }
 
-    public int getAvailableBox() {
-        int count = (int) boxes.stream().filter(box -> box.isAvailable()).count();
-        return count;
+    public long getAvailableBox() {
+        return boxes.stream().filter(box -> box.isAvailable()).count();
     }
 
     public Bag get(Ticket ticket) throws Exception {
         if (!ticket.getValid()) {
-            throw  new Exception("fail to get the bag, invalid ticket");
+            throw new Exception("fail to get the bag, invalid ticket");
         }
-        Optional<Box> optionalBox = boxes.stream().filter(box -> box.getId() == ticket.getBoxId()).findFirst();
-        if (optionalBox.isPresent()) {
-            Box box=optionalBox.get();
-            Bag bag = box.get();
-            ticket.setInvalid();
-            return bag;
-        }
-        throw  new Exception("fail to get the bag, wrong ticket");
+        Box box = boxes.stream()
+                .filter(b -> b.getId() == ticket.getBoxId())
+                .findFirst()
+                .orElseThrow(() -> new Exception("fail to get the bag, wrong ticket"));
+        Bag bag = box.get(ticket);
+        return bag;
     }
 }

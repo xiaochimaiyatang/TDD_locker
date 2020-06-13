@@ -1,6 +1,7 @@
 public class Ticket {
     private String boxId;
     private Boolean isValid;
+
     public Ticket(String id) {
         isValid = true;
         boxId = id;

@@ -18,7 +18,7 @@ public class LockerTest {
         Bag bag = new Bag();
         Ticket ticket = locker.save(bag);
         assertEquals("001", ticket.getBoxId());
-        assertEquals(1, locker.getAvailableBox());
+        assertEquals(1L, locker.getAvailableBox());
     }
 
 
@@ -35,7 +35,7 @@ public class LockerTest {
 
         //then
         assertEquals(bag, myBag);
-        assertEquals(2, locker.getAvailableBox());
+        assertEquals(2L, locker.getAvailableBox());
 
     }
 
