@@ -1,0 +1,6 @@
+tasking
+given 有空位， when存包，then存包成功，出票
+given 无空位， when存包，then存包失败，提示无空位
+given 存了包，有效票，when取包，then取包成功
+given 存了包，无效票，when取包，then取包失败，提示非法票
+given 重复票，when取包，then取包失败，提示非法票
