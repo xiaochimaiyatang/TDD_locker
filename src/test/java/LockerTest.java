@@ -73,4 +73,23 @@ public class LockerTest {
 //        when:
         locker.get(wrongTicket);
     }
+
+    @Test
+    public void should_fail_get_bag_when_use_ticket_twice() throws Exception {
+        //given
+        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker = new Locker(box);
+        Bag myBag = new Bag();
+        Ticket ticket = locker.save(myBag);
+        Bag bag = locker.get(ticket);
+
+
+        //then
+        thrown.expect(Exception.class);
+        thrown.expectMessage("fail to get the bag, invalid ticket");
+
+        //when
+        locker.get(ticket);
+
+    }
 }
