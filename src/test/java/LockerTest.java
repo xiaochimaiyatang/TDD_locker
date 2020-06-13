@@ -57,4 +57,20 @@ public class LockerTest {
 //        when:
         locker.save(bag);
     }
+
+    @Test
+    public void should_get_bag_unsuccessfully_when_have_wrong_ticket() throws Exception {
+//        given:
+        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker = new Locker(box);
+        Bag bag = new Bag();
+        locker.save(bag);
+        Ticket wrongTicket = new Ticket("wrong id");
+
+//        then:
+        thrown.expect(Exception.class);
+        thrown.expectMessage("fail to get the bag, wrong ticket");
+//        when:
+        locker.get(wrongTicket);
+    }
 }

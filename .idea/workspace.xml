@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="945d3d1f-a377-4ebb-8f52-23021acbbf33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Locker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Locker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LockerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LockerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Locker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Locker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/LockerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LockerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +66,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LockerTest.should_save_unsuccessfully_when_have_no_empty_box">
+  <component name="RunManager" selected="JUnit.LockerTest.should_get_bag_unsuccessfully_when_have_wrong_ticket">
     <configuration name="LockerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,11 +86,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LockerTest.should_save_bag_success_when_have_empty_box" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LockerTest.should_get_bag_unsuccessfully_when_have_wrong_ticket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LockerTest" />
-      <option name="METHOD_NAME" value="should_save_bag_success_when_have_empty_box" />
+      <option name="METHOD_NAME" value="should_get_bag_unsuccessfully_when_have_wrong_ticket" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LockerTest.should_get_bag_unsuccessfully_when_have_wrong_ticket" />
         <item itemvalue="JUnit.LockerTest.should_save_unsuccessfully_when_have_no_empty_box" />
         <item itemvalue="JUnit.LockerTest" />
         <item itemvalue="JUnit.LockerTest.should_save_bag_successfully_when_have_empty_box" />
         <item itemvalue="JUnit.LockerTest.should_get_bag_successfully_when_have_correct_ticket" />
-        <item itemvalue="JUnit.LockerTest.should_save_bag_success_when_have_empty_box" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +150,7 @@
       <updated>1591972149485</updated>
       <workItem from="1591972151239" duration="6390000" />
       <workItem from="1592049130817" duration="1586000" />
-      <workItem from="1592050871771" duration="3506000" />
+      <workItem from="1592050871771" duration="3832000" />
     </task>
     <servers />
   </component>
@@ -170,30 +166,30 @@
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
     <state x="-1027" y="649" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592052264718" />
-    <state width="1638" height="447" key="GridCell.Tab.0.bottom" timestamp="1592056540568">
+    <state width="1638" height="447" key="GridCell.Tab.0.bottom" timestamp="1592056863884">
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
     <state width="1698" height="262" key="GridCell.Tab.0.bottom/0.23.1792.1054@0.23.1792.1054" timestamp="1592054927455" />
     <state width="1608" height="261" key="GridCell.Tab.0.bottom/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155366" />
-    <state width="1638" height="447" key="GridCell.Tab.0.bottom/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056540568" />
-    <state width="1638" height="447" key="GridCell.Tab.0.center" timestamp="1592056540567">
+    <state width="1638" height="447" key="GridCell.Tab.0.bottom/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056863884" />
+    <state width="1638" height="447" key="GridCell.Tab.0.center" timestamp="1592056863883">
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
     <state width="1698" height="262" key="GridCell.Tab.0.center/0.23.1792.1054@0.23.1792.1054" timestamp="1592054927454" />
     <state width="1608" height="261" key="GridCell.Tab.0.center/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155365" />
-    <state width="1638" height="447" key="GridCell.Tab.0.center/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056540567" />
-    <state width="1638" height="447" key="GridCell.Tab.0.left" timestamp="1592056540567">
+    <state width="1638" height="447" key="GridCell.Tab.0.center/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056863883" />
+    <state width="1638" height="447" key="GridCell.Tab.0.left" timestamp="1592056863882">
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
     <state width="1698" height="262" key="GridCell.Tab.0.left/0.23.1792.1054@0.23.1792.1054" timestamp="1592054927453" />
     <state width="1608" height="261" key="GridCell.Tab.0.left/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155362" />
-    <state width="1638" height="447" key="GridCell.Tab.0.left/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056540567" />
-    <state width="1638" height="447" key="GridCell.Tab.0.right" timestamp="1592056540568">
+    <state width="1638" height="447" key="GridCell.Tab.0.left/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056863882" />
+    <state width="1638" height="447" key="GridCell.Tab.0.right" timestamp="1592056863883">
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
     <state width="1698" height="262" key="GridCell.Tab.0.right/0.23.1792.1054@0.23.1792.1054" timestamp="1592054927454" />
     <state width="1608" height="261" key="GridCell.Tab.0.right/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155366" />
-    <state width="1638" height="447" key="GridCell.Tab.0.right/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056540568" />
+    <state width="1638" height="447" key="GridCell.Tab.0.right/0.23.2560.1363/-1680.413.1680.1027@-1680.413.1680.1027" timestamp="1592056863883" />
     <state width="1638" height="345" key="GridCell.Tab.1.bottom" timestamp="1592052056623">
       <screen x="-1680" y="413" width="1680" height="1027" />
     </state>
