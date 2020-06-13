@@ -1,53 +1,21 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class LockerTest {
-    @Test
-    public void should_save_bag_success(){
-        Locker locker=new Locker(10);
-        Pack pack=new Pack();
-        Ticket ticket=locker.save(pack);
-        assertNotNull(ticket) ;
-    }
 
     @Test
-    public void should_save_bag_fail(){
-        Locker locker=new Locker(0);
-        Pack pack=new Pack();
-        Ticket ticket=locker.save(pack);
-        assertNull(ticket) ;
+    public void should_save_bag_success_when_have_empty_box(){
+        List<Box> box= Arrays.asList(new Box(),new Box());
+        Locker locker=new Locker(box);
+        Bag bag=new Bag();
+        Ticket ticket = locker.save(bag);
+        assertNotNull(ticket);
+        assertEquals(1,locker.getAvailableBox());
+
     }
-
-    @Test
-    public void should_save_bag_success_and_pickup_success(){
-        Locker locker=new Locker(10);
-        Pack pack=new Pack();
-        Ticket ticket=locker.save(pack);
-        Pack getPack=locker.pickup(ticket);
-        assertNotNull(getPack) ;
-    }
-
-    @Test
-    public void should_pickup_success_given_ticket_is_used_once(){
-        Locker locker=new Locker(10);
-        Pack pack=new Pack();
-        Ticket ticket=locker.save(pack);
-        Pack getPack=locker.pickup(ticket);
-        locker.pickup(ticket);
-        Pack getPackAgain=locker.pickup(ticket);
-        assertNull(getPackAgain) ;
-    }
-
-
-    @Test
-    public void should_pickup_success_given_ticket_is_invaild(){
-        Locker locker=new Locker(10);
-        Pack pack=new Pack();
-        Ticket ticket=locker.save(pack);
-        Ticket newticket=new Ticket();
-        Pack getPackInvaid=locker.pickup(newticket);
-        assertNull(getPackInvaid) ;
-    }
-
 }

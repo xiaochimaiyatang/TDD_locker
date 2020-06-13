@@ -1,6 +1,24 @@
-tasking
-given 有空位， when存包，then存包成功，出票
-given 无空位， when存包，then存包失败，提示无空位
-given 存了包，有效票，when取包，then取包成功
-given 存了包，无效票，when取包，then取包失败，提示非法票
-given 重复票，when取包，then取包失败，提示非法票
+# gz-cz-locker
+实现储物柜可以存包，取包
+作业要求
+- 产出Tasking列表
+- 按照TDD的方式实现需求
+- 小步提交，commit信息表意
+- 最后只需要提交Github地址
+
+happy：
+
+given有空位置，when存包，then存成功，出票，可用箱子数减1
+
+given有效票，when取包，then取成功，可用箱子数加1
+
+unhappy:
+
+given无空位置，when存包，then存失败，提示无空位置
+
+given无效票，when取包，then取包失败，提示无效票
+
+given重复票，when取包，then取包失败，提示无效票
+
+
+

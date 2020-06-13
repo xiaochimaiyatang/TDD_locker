@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="945d3d1f-a377-4ebb-8f52-23021acbbf33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Bag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Box.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Locker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Locker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LockerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LockerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Locker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Locker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Pack.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/LockerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LockerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Arquillian JUnit Test Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -41,6 +50,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -51,7 +65,18 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.LockerTest.should_pickup_success_given_ticket_is_invaild">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.LockerTest.should_save_bag_success_when_have_empty_box">
     <configuration name="LockerTest.should_pickup_success_given_ticket_is_invaild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
@@ -67,16 +92,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LockerTest" />
       <option name="METHOD_NAME" value="should_pickup_success_given_ticket_is_used_once" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LockerTest.should_save_bag_fail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TDD_locker" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LockerTest" />
-      <option name="METHOD_NAME" value="should_save_bag_fail" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,13 +117,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LockerTest.should_save_bag_success_when_have_empty_box" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD_locker" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LockerTest" />
+      <option name="METHOD_NAME" value="should_save_bag_success_when_have_empty_box" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LockerTest.should_save_bag_success_when_have_empty_box" />
+        <item itemvalue="JUnit.LockerTest.should_save_bag_success" />
         <item itemvalue="JUnit.LockerTest.should_pickup_success_given_ticket_is_invaild" />
         <item itemvalue="JUnit.LockerTest.should_pickup_success_given_ticket_is_used_once" />
         <item itemvalue="JUnit.LockerTest.should_save_bag_success_and_pickup_success" />
-        <item itemvalue="JUnit.LockerTest.should_save_bag_fail" />
-        <item itemvalue="JUnit.LockerTest.should_save_bag_success" />
       </list>
     </recent_temporary>
   </component>
@@ -122,7 +147,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591972149485</updated>
-      <workItem from="1591972151239" duration="5393000" />
+      <workItem from="1591972151239" duration="6390000" />
+      <workItem from="1592049130817" duration="1586000" />
     </task>
     <servers />
   </component>
@@ -134,26 +160,34 @@
       <screen x="0" y="23" width="1792" height="1055" />
     </state>
     <state x="618" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1055@0.23.1792.1055" timestamp="1591972247687" />
-    <state width="1608" height="261" key="GridCell.Tab.0.bottom" timestamp="1592035747472">
-      <screen x="0" y="23" width="1792" height="1055" />
+    <state width="1698" height="262" key="GridCell.Tab.0.bottom" timestamp="1592050005784">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.bottom/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747472" />
-    <state width="1608" height="261" key="GridCell.Tab.0.center" timestamp="1592035747471">
-      <screen x="0" y="23" width="1792" height="1055" />
+    <state width="1698" height="262" key="GridCell.Tab.0.bottom/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005784" />
+    <state width="1608" height="261" key="GridCell.Tab.0.bottom/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155366" />
+    <state width="1698" height="262" key="GridCell.Tab.0.center" timestamp="1592050005783">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.center/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747471" />
-    <state width="1608" height="261" key="GridCell.Tab.0.left" timestamp="1592035747471">
-      <screen x="0" y="23" width="1792" height="1055" />
+    <state width="1698" height="262" key="GridCell.Tab.0.center/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005783" />
+    <state width="1608" height="261" key="GridCell.Tab.0.center/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155365" />
+    <state width="1698" height="262" key="GridCell.Tab.0.left" timestamp="1592050005783">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.left/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747471" />
-    <state width="1608" height="261" key="GridCell.Tab.0.right" timestamp="1592035747472">
-      <screen x="0" y="23" width="1792" height="1055" />
+    <state width="1698" height="262" key="GridCell.Tab.0.left/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005783" />
+    <state width="1608" height="261" key="GridCell.Tab.0.left/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155362" />
+    <state width="1698" height="262" key="GridCell.Tab.0.right" timestamp="1592050005784">
+      <screen x="0" y="23" width="1792" height="1054" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.right/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747472" />
+    <state width="1698" height="262" key="GridCell.Tab.0.right/0.23.1792.1054@0.23.1792.1054" timestamp="1592050005784" />
+    <state width="1608" height="261" key="GridCell.Tab.0.right/0.23.1792.1055@0.23.1792.1055" timestamp="1592046155366" />
     <state x="58" y="51" key="Maven.ArtifactSearchDialog" timestamp="1591973241709">
       <screen x="0" y="23" width="1792" height="1054" />
     </state>
     <state x="58" y="51" key="Maven.ArtifactSearchDialog/0.23.1792.1054@0.23.1792.1054" timestamp="1591973241709" />
     <state x="58" y="51" key="Maven.ArtifactSearchDialog/0.23.1792.1055@0.23.1792.1055" timestamp="1591972770794" />
+    <state x="579" y="171" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592049689378">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="579" y="171" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.1792.1054@0.23.1792.1054" timestamp="1592049689378" />
   </component>
 </project>
