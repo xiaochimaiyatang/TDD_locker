@@ -21,4 +21,8 @@ public class Locker {
         savePack.put(ticket,pack);
         return ticket;
     }
+
+    public Pack pickup(Ticket ticket) {
+        return savePack.remove(ticket);
+    }
 }
