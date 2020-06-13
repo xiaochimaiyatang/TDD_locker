@@ -8,7 +8,7 @@ public class Locker {
         this.boxes = boxes;
     }
 
-    public Ticket save(Bag bag) {
+    public Ticket save(Bag bag) throws Exception {
         Optional<Box> boxOptional = boxes.stream().filter(box -> box.isAvailable()).findFirst();
         if (boxOptional.isPresent()) {
             Box box1 = boxOptional.get();
@@ -16,7 +16,7 @@ public class Locker {
             Ticket ticket = box1.save(bag);
             return ticket;
         }
-        return null;
+        throw  new Exception("fail to save the bag, no Empty Box");
     }
 
     public int getAvailableBox() {

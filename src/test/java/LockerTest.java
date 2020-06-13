@@ -12,7 +12,7 @@ public class LockerTest {
     public ExpectedException thrown=ExpectedException.none();
 
     @Test
-    public void should_save_bag_successfully_when_have_empty_box() {
+    public void should_save_bag_successfully_when_have_empty_box() throws Exception {
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
         Bag bag = new Bag();
@@ -23,7 +23,7 @@ public class LockerTest {
 
 
     @Test
-    public void should_get_bag_successfully_when_have_correct_ticket() {
+    public void should_get_bag_successfully_when_have_correct_ticket() throws Exception {
         //given
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
@@ -40,20 +40,21 @@ public class LockerTest {
     }
 
     @Test
-    public void should_save_unsuccessfully_when_have_no_empty_box(){
+    public void should_save_unsuccessfully_when_have_no_empty_box() throws Exception {
 //        given:
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
         Bag myBag1 = new Bag();
         Bag myBag2 = new Bag();
-        Ticket ticket1 = locker.save(myBag1);
-        Ticket ticket2 = locker.save(myBag2);
+        locker.save(myBag1);
+        locker.save(myBag2);
         Bag bag=new Bag();
-//        when:
-        locker.save(bag);
 
 //        then:
         thrown.expect(Exception.class);
-        thrown.expectMessage("save Unsuccefully, no Empty Box");
+        thrown.expectMessage("fail to save the bag, no Empty Box");
+
+//        when:
+        locker.save(bag);
     }
 }
