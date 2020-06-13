@@ -23,4 +23,8 @@ public class Locker {
         int count = (int) boxes.stream().filter(box -> box.isAvailable()).count();
         return count;
     }
+
+    public Bag get(Ticket ticket) {
+        return null;
+    }
 }
