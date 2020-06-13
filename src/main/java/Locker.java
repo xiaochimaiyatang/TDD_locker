@@ -1,5 +1,6 @@
 import sun.font.TrueTypeFont;
 
+import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class Locker {
@@ -11,6 +12,8 @@ public class Locker {
         Boolean SaveResult= TRUE;
         if (RemainBoxNum>0){
             TotalBox-=1;
+        }else{
+            SaveResult= FALSE;
         }
         return SaveResult;
     }
