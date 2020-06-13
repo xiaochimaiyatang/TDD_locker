@@ -51,7 +51,17 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.LockerTest.should_pickup_success_given_ticket_is_used_once">
+  <component name="RunManager" selected="JUnit.LockerTest.should_pickup_success_given_ticket_is_invaild">
+    <configuration name="LockerTest.should_pickup_success_given_ticket_is_invaild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD_locker" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LockerTest" />
+      <option name="METHOD_NAME" value="should_pickup_success_given_ticket_is_invaild" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LockerTest.should_pickup_success_given_ticket_is_used_once" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_locker" />
       <option name="PACKAGE_NAME" value="" />
@@ -94,6 +104,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LockerTest.should_pickup_success_given_ticket_is_invaild" />
         <item itemvalue="JUnit.LockerTest.should_pickup_success_given_ticket_is_used_once" />
         <item itemvalue="JUnit.LockerTest.should_save_bag_success_and_pickup_success" />
         <item itemvalue="JUnit.LockerTest.should_save_bag_fail" />
@@ -123,22 +134,22 @@
       <screen x="0" y="23" width="1792" height="1055" />
     </state>
     <state x="618" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1055@0.23.1792.1055" timestamp="1591972247687" />
-    <state width="1608" height="261" key="GridCell.Tab.0.bottom" timestamp="1592035727886">
+    <state width="1608" height="261" key="GridCell.Tab.0.bottom" timestamp="1592035747472">
       <screen x="0" y="23" width="1792" height="1055" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.bottom/0.23.1792.1055@0.23.1792.1055" timestamp="1592035727886" />
-    <state width="1608" height="261" key="GridCell.Tab.0.center" timestamp="1592035727885">
+    <state width="1608" height="261" key="GridCell.Tab.0.bottom/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747472" />
+    <state width="1608" height="261" key="GridCell.Tab.0.center" timestamp="1592035747471">
       <screen x="0" y="23" width="1792" height="1055" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.center/0.23.1792.1055@0.23.1792.1055" timestamp="1592035727885" />
-    <state width="1608" height="261" key="GridCell.Tab.0.left" timestamp="1592035727885">
+    <state width="1608" height="261" key="GridCell.Tab.0.center/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747471" />
+    <state width="1608" height="261" key="GridCell.Tab.0.left" timestamp="1592035747471">
       <screen x="0" y="23" width="1792" height="1055" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.left/0.23.1792.1055@0.23.1792.1055" timestamp="1592035727885" />
-    <state width="1608" height="261" key="GridCell.Tab.0.right" timestamp="1592035727886">
+    <state width="1608" height="261" key="GridCell.Tab.0.left/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747471" />
+    <state width="1608" height="261" key="GridCell.Tab.0.right" timestamp="1592035747472">
       <screen x="0" y="23" width="1792" height="1055" />
     </state>
-    <state width="1608" height="261" key="GridCell.Tab.0.right/0.23.1792.1055@0.23.1792.1055" timestamp="1592035727886" />
+    <state width="1608" height="261" key="GridCell.Tab.0.right/0.23.1792.1055@0.23.1792.1055" timestamp="1592035747472" />
     <state x="58" y="51" key="Maven.ArtifactSearchDialog" timestamp="1591973241709">
       <screen x="0" y="23" width="1792" height="1054" />
     </state>

@@ -39,4 +39,15 @@ public class LockerTest {
         assertNull(getPackAgain) ;
     }
 
+
+    @Test
+    public void should_pickup_success_given_ticket_is_invaild(){
+        Locker locker=new Locker(10);
+        Pack pack=new Pack();
+        Ticket ticket=locker.save(pack);
+        Ticket newticket=new Ticket();
+        Pack getPackInvaid=locker.pickup(newticket);
+        assertNull(getPackInvaid) ;
+    }
+
 }
