@@ -10,8 +10,12 @@ public class PrimaryRobot {
     }
 
     public Ticket save(Bag bag) throws Exception {
-        Optional<Locker> firstNotFullLocker = lockers.stream().filter(locker -> locker.getAvailableBox()!=0).findFirst();
-        Ticket ticket = firstNotFullLocker.get().save(bag);
+
+        Ticket ticket = lockers.stream()
+                .filter(locker -> locker.getAvailableBox() != 0)
+                .findFirst()
+                .orElseThrow(() -> new Exception("fail to save the bag, no Empty Locker"))
+                .save(bag);
         return ticket;
     }
 }

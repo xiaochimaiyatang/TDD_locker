@@ -1,4 +1,6 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +15,10 @@ import static org.junit.Assert.*;
 //Given: 三个储物柜 一个非法ticket When：使用Primary Robot取包 then： 票据不合法，取包失败 
 //Given: 三个储物柜 一个合法ticket When：使用Primary Robot取包 ， 再次取包then： 第一次成功，第二次失败  
 public class PrimaryRobotTest {
+    @Rule
+    public ExpectedException thrown=ExpectedException.none();
+
+
     @Test
     public void should_save_in_first_locker_when_every_locker_is_not_full() throws Exception {
         //Given:
@@ -52,6 +58,28 @@ public class PrimaryRobotTest {
         //Then:
         assertEquals("003", ticket.getBoxId());
         assertEquals(1L, locker2.getAvailableBox());
+    }
+
+    @Test
+    public void should_fail_to_save_in_when_lockers_are_full() throws Exception {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
+        Locker locker2 = new Locker(boxes2);
+        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        Bag bag = new Bag();
+        primaryRobot.save(bag);
+        primaryRobot.save(bag);
+        primaryRobot.save(bag);
+        primaryRobot.save(bag);
+
+        //Then:
+        thrown.expect(Exception.class);
+        thrown.expectMessage("fail to save the bag, no Empty Locker");
+        //When:
+        primaryRobot.save(bag);
+
     }
 
 }
