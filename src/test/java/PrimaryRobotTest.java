@@ -117,4 +117,26 @@ public class PrimaryRobotTest {
         //When:
         primaryRobot.get(invalidTicket);
     }
+
+    @Test
+    public void should_fail_to_get_my_bag_when_ticket_is_used_twice() throws Exception {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
+        Locker locker2 = new Locker(boxes2);
+        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        Bag bag = new Bag();
+        Ticket ticket = primaryRobot.save(bag);
+        primaryRobot.get(ticket);
+
+
+        //Then:
+        thrown.expect(Exception.class);
+        thrown.expectMessage("fail to get the bag, invalid ticket");
+
+        //When:
+        primaryRobot.get(ticket);
+
+    }
 }
