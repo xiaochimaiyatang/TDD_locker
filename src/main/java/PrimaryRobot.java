@@ -18,4 +18,17 @@ public class PrimaryRobot {
                 .save(bag);
         return ticket;
     }
+
+    public Bag get(Ticket ticket) {
+        Optional<Bag> bag = lockers.stream()
+                .map(locker -> {
+                    try {
+                        return locker.get(ticket);
+                    } catch (Exception e) {
+                        return null;
+                    }
+                })
+                .filter(b -> b != null).findFirst();
+        return bag.get();
+    }
 }
