@@ -21,4 +21,25 @@ given无效票，when取包，then取包失败，提示无效票
 given重复票，when取包，then取包失败，提示无效票
 
 
+------------------------------------------
+实现PrimaryLockerRobot可以存包，取包
+作业要求
+- 产出Tasking列表
+- 按照TDD的方式实现需求
+- 小步提交（建议完成一个Task做一次提交，并且所有测试是通过的），commit信息表意
+- 最后只需要提交Github地址
+
+Given: 三个储物柜都未满 When：使用Primary Robot存包 then： 包存在储物柜1 得到ticket 
+Given: 三个储物柜，储物柜1满 储物柜2 有空闲  储物柜3有空闲 When：使用Primary Robot存包 then： 包存在储物柜2 得到ticket 
+Given: 三个储物柜 一个有效ticket When：使用Primary Robot取包 then： 得到存的包且ticket作废 
+Given: 三个储物柜 且都存满了 When：使用Primary Robot存包 then： 存包失败，柜箱已满 
+Given: 三个储物柜 一个非法ticket When：使用Primary Robot取包 then： 票据不合法，取包失败 
+Given: 三个储物柜 一个合法ticket When：使用Primary Robot取包 ， 再次取包then： 第一次成功，第二次失败  
+
+反馈： 
+1. 在Task的描述中用更精准的业务概念描述，比如：柜子-->储物柜，机器人--> Primary Robot 
+1. 这里的行为是Primary Robot存包和取包，描述上可以直接使用Primary Robot 存包/取包 
+3. Case1对顺序存包的场景覆盖少了一个，比如三个都有空间的时候，存到第一个
+
+
 
