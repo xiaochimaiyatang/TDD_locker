@@ -75,6 +75,7 @@ public class PrimaryRobotTest {
         //Then:
         assertEquals(bag, myBag);
     }
+
     @Test
     public void should_fail_to_save_in_when_lockers_are_full() throws Exception {
         //Given:
@@ -97,4 +98,23 @@ public class PrimaryRobotTest {
 
     }
 
+    @Test
+    public void should_fail_to_get_my_bag_when_ticket_is_invalid() throws Exception {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
+        Locker locker2 = new Locker(boxes2);
+        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        Bag bag = new Bag();
+        primaryRobot.save(bag);
+        Ticket invalidTicket = new Ticket("invalid ticket");
+
+        //Then:
+        thrown.expect(Exception.class);
+        thrown.expectMessage("fail to get the bag, invalid ticket");
+
+        //When:
+        primaryRobot.get(invalidTicket);
+    }
 }
