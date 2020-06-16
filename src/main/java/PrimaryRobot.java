@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Optional;
 
 public class PrimaryRobot {
     private List<Locker> lockers;
@@ -9,7 +10,8 @@ public class PrimaryRobot {
     }
 
     public Ticket save(Bag bag) throws Exception {
-        Ticket ticket = lockers.get(0).save(bag);
+        Optional<Locker> firstNotFullLocker = lockers.stream().filter(locker -> locker.getAvailableBox()!=0).findFirst();
+        Ticket ticket = firstNotFullLocker.get().save(bag);
         return ticket;
     }
 }

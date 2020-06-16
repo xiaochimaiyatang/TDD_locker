@@ -31,4 +31,27 @@ public class PrimaryRobotTest {
         assertEquals("001", ticket.getBoxId());
         assertEquals(1L, locker1.getAvailableBox());
     }
+
+
+    @Test
+    public void should_save_in_second_locker_when_1st_is_full_but_2ndAnd3rd_locker_is_not_full() throws Exception {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
+        Locker locker2 = new Locker(boxes2);
+        List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
+        Locker locker3 = new Locker(boxes3);
+        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2, locker3));
+        Bag bag = new Bag();
+        primaryRobot.save(bag);
+        primaryRobot.save(bag);
+        //When:
+        Ticket ticket = primaryRobot.save(bag);
+
+        //Then:
+        assertEquals("003", ticket.getBoxId());
+        assertEquals(1L, locker2.getAvailableBox());
+    }
+
 }
