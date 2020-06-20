@@ -50,6 +50,8 @@ Given: 三个储物柜 一个合法ticket When：使用Primary Robot取包 ， �
     - Given: 储物柜1和2都已满 When：使用smartLockerRobot存包 then： 存包失败，柜箱已满
 2. 取：
     - Given: 三个储物柜 一个有效ticket When：使用 smartLockerRobot 取包 then： 得到存的包且ticket作废 
+    - Given: 三个储物柜 一个由Primary Robot得到的有效ticket When：使用 smartLockerRobot 取包 then： 得到存的包且ticket作废 
+    - Given: 三个储物柜 一个由smartLockerRobot得到的有效ticket When：使用 Primary Robot 取包 then： 得到存的包且ticket作废 
     - Given: 三个储物柜 一个无效ticket When：使用 smartLockerRobot 取包 then： 票据不合法，取包失败   
 
 

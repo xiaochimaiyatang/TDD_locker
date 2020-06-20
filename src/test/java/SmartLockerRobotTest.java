@@ -1,3 +1,4 @@
+import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 import org.junit.Rule;
 import org.junit.Test;
@@ -74,4 +75,20 @@ public class SmartLockerRobotTest {
         smartLockerRobot.save(bag);
     }
 
+    @Test
+    public void should_get_bag_successfully_when_valid_ticket_from_PrimaryRobot() throws NoEmptyLockerException, InvalidTicketException {
+        List<Box> boxes1 = Arrays.asList(new Box("001"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList();
+        Locker locker2 = new Locker(boxes2);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1, locker2));
+        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        Bag bag = new Bag();
+        Ticket ticket = primaryRobot.save(bag);
+
+        Bag myBag = smartLockerRobot.get(ticket);
+
+        assertEquals(bag, myBag);
+
+    }
 }
