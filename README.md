@@ -41,5 +41,15 @@ Given: 三个储物柜 一个合法ticket When：使用Primary Robot取包 ， �
 1. 这里的行为是Primary Robot存包和取包，描述上可以直接使用Primary Robot 存包/取包 
 3. Case1对顺序存包的场景覆盖少了一个，比如三个都有空间的时候，存到第一个
 
+------------------------------------------
+![smartRobot](./smartLockerRobot.jpg)
+1. 存：
+    - Given: 储物柜1有4个空间，储物柜2有3个空间 When：使用smartLockerRobot存包 then： 包存在储物柜1 且得到ticket
+    - Given: 储物柜1有3个空间，储物柜2有3个空间 When：使用smartLockerRobot存包 then： 包存在储物柜1 且得到ticket
+    - Given: 储物柜1有3个空间，储物柜2有4个空间 When：使用smartLockerRobot存包 then： 包存在储物柜2 且得到ticket
+    - Given: 储物柜1和2都已满 When：使用smartLockerRobot存包 then： 存包失败，柜箱已满
+2. 取：
+    - Given: 三个储物柜 一个有效ticket When：使用 smartLockerRobot 取包 then： 得到存的包且ticket作废 
+    - Given: 三个储物柜 一个无效ticket When：使用 smartLockerRobot 取包 then： 票据不合法，取包失败   
 
 
