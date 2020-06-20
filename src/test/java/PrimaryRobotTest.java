@@ -1,3 +1,5 @@
+import exception.InvalidTicketException;
+import exception.NoEmptyLockerException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -20,7 +22,7 @@ public class PrimaryRobotTest {
 
 
     @Test
-    public void should_save_in_first_locker_when_every_locker_is_not_full() throws Exception {
+    public void should_save_in_first_locker_when_every_locker_is_not_full() throws NoEmptyLockerException {
         //Given:
         List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker1 = new Locker(boxes1);
@@ -40,7 +42,7 @@ public class PrimaryRobotTest {
 
 
     @Test
-    public void should_save_in_second_locker_when_1st_is_full_but_2ndAnd3rd_locker_is_not_full() throws Exception {
+    public void should_save_in_second_locker_when_1st_is_full_but_2ndAnd3rd_locker_is_not_full() throws NoEmptyLockerException {
         //Given:
         List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker1 = new Locker(boxes1);
@@ -61,7 +63,7 @@ public class PrimaryRobotTest {
     }
 
     @Test
-    public void should_get_my_bag_successfully_when_ticket_is_valid() throws Exception {
+    public void should_get_my_bag_successfully_when_ticket_is_valid() throws NoEmptyLockerException, InvalidTicketException {
         //Given:
         List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker1 = new Locker(boxes1);
@@ -77,7 +79,7 @@ public class PrimaryRobotTest {
     }
 
     @Test
-    public void should_fail_to_save_in_when_lockers_are_full() throws Exception {
+    public void should_fail_to_save_in_when_lockers_are_full() throws NoEmptyLockerException {
         //Given:
         List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker1 = new Locker(boxes1);
@@ -91,15 +93,15 @@ public class PrimaryRobotTest {
         primaryRobot.save(bag);
 
         //Then:
-        thrown.expect(Exception.class);
-        thrown.expectMessage("fail to save the bag, no Empty Locker");
+        thrown.expect(NoEmptyLockerException.class);
+        thrown.expectMessage("fail to save the bag, no Empty Box");
         //When:
         primaryRobot.save(bag);
 
     }
 
     @Test
-    public void should_fail_to_get_my_bag_when_ticket_is_invalid() throws Exception {
+    public void should_fail_to_get_my_bag_when_ticket_is_invalid() throws NoEmptyLockerException, InvalidTicketException {
         //Given:
         List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker1 = new Locker(boxes1);
@@ -111,32 +113,10 @@ public class PrimaryRobotTest {
         Ticket invalidTicket = new Ticket("invalid ticket");
 
         //Then:
-        thrown.expect(Exception.class);
+        thrown.expect(InvalidTicketException.class);
         thrown.expectMessage("fail to get the bag, invalid ticket");
 
         //When:
         primaryRobot.get(invalidTicket);
-    }
-
-    @Test
-    public void should_fail_to_get_my_bag_when_ticket_is_used_twice() throws Exception {
-        //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
-        Bag bag = new Bag();
-        Ticket ticket = primaryRobot.save(bag);
-        primaryRobot.get(ticket);
-
-
-        //Then:
-        thrown.expect(Exception.class);
-        thrown.expectMessage("fail to get the bag, invalid ticket");
-
-        //When:
-        primaryRobot.get(ticket);
-
     }
 }

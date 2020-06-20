@@ -1,3 +1,5 @@
+import exception.InvalidTicketException;
+import exception.NoEmptyLockerException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -12,7 +14,7 @@ public class LockerTest {
     public ExpectedException thrown=ExpectedException.none();
 
     @Test
-    public void should_save_bag_successfully_when_have_empty_box() throws Exception {
+    public void should_save_bag_successfully_when_have_empty_box() throws NoEmptyLockerException {
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
         Bag bag = new Bag();
@@ -23,7 +25,7 @@ public class LockerTest {
 
 
     @Test
-    public void should_get_bag_successfully_when_have_correct_ticket() throws Exception {
+    public void should_get_bag_successfully_when_have_correct_ticket() throws NoEmptyLockerException, InvalidTicketException {
         //given
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
@@ -40,7 +42,7 @@ public class LockerTest {
     }
 
     @Test
-    public void should_save_unsuccessfully_when_have_no_empty_box() throws Exception {
+    public void should_save_unsuccessfully_when_have_no_empty_box() throws NoEmptyLockerException {
 //        given:
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
@@ -51,7 +53,7 @@ public class LockerTest {
         Bag bag=new Bag();
 
 //        then:
-        thrown.expect(Exception.class);
+        thrown.expect(NoEmptyLockerException.class);
         thrown.expectMessage("fail to save the bag, no Empty Box");
 
 //        when:
@@ -59,7 +61,7 @@ public class LockerTest {
     }
 
     @Test
-    public void should_get_bag_unsuccessfully_when_have_wrong_ticket() throws Exception {
+    public void should_get_bag_unsuccessfully_when_have_wrong_ticket() throws NoEmptyLockerException, InvalidTicketException {
 //        given:
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
@@ -68,14 +70,14 @@ public class LockerTest {
         Ticket wrongTicket = new Ticket("wrong id");
 
 //        then:
-        thrown.expect(Exception.class);
-        thrown.expectMessage("fail to get the bag, wrong ticket");
+        thrown.expect(InvalidTicketException.class);
+        thrown.expectMessage("fail to get the bag, invalid ticket");
 //        when:
         locker.get(wrongTicket);
     }
 
     @Test
-    public void should_fail_get_bag_when_use_ticket_twice() throws Exception {
+    public void should_fail_get_bag_when_use_ticket_twice() throws NoEmptyLockerException, InvalidTicketException {
         //given
         List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker = new Locker(box);
@@ -85,7 +87,7 @@ public class LockerTest {
 
 
         //then
-        thrown.expect(Exception.class);
+        thrown.expect(InvalidTicketException.class);
         thrown.expectMessage("fail to get the bag, invalid ticket");
 
         //when

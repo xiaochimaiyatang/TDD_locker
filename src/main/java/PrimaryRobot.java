@@ -1,5 +1,7 @@
+import exception.InvalidTicketException;
+import exception.NoEmptyLockerException;
+
 import java.util.List;
-import java.util.Optional;
 
 public class PrimaryRobot {
     private List<Locker> lockers;
@@ -9,16 +11,16 @@ public class PrimaryRobot {
 
     }
 
-    public Ticket save(Bag bag) throws Exception {
+    public Ticket save(Bag bag) throws NoEmptyLockerException {
 
         return lockers.stream()
                 .filter(locker -> locker.getAvailableBox() != 0)
                 .findFirst()
-                .orElseThrow(() -> new Exception("fail to save the bag, no Empty Locker"))
+                .orElseThrow(() -> new NoEmptyLockerException())
                 .save(bag);
     }
 
-    public Bag get(Ticket ticket) throws Exception {
+    public Bag get(Ticket ticket) throws InvalidTicketException {
         return lockers.stream()
                 .map(locker -> {
                     try {
@@ -29,6 +31,6 @@ public class PrimaryRobot {
                 })
                 .filter(b -> b != null)
                 .findFirst()
-                .orElseThrow(() -> new Exception("fail to get the bag, invalid ticket"));
+                .orElseThrow(() -> new InvalidTicketException());
     }
 }

@@ -1,3 +1,6 @@
+import exception.InvalidTicketException;
+import exception.NoEmptyLockerException;
+
 import java.util.List;
 
 public class Locker {
@@ -7,11 +10,11 @@ public class Locker {
         this.boxes = boxes;
     }
 
-    public Ticket save(Bag bag) throws Exception {
+    public Ticket save(Bag bag) throws NoEmptyLockerException {
         return boxes.stream()
                 .filter(b -> b.isAvailable())
                 .findFirst()
-                .orElseThrow(() -> new Exception("fail to save the bag, no Empty Box"))
+                .orElseThrow(() -> new NoEmptyLockerException())
                 .save(bag);
     }
 
@@ -19,14 +22,14 @@ public class Locker {
         return boxes.stream().filter(box -> box.isAvailable()).count();
     }
 
-    public Bag get(Ticket ticket) throws Exception {
+    public Bag get(Ticket ticket) throws InvalidTicketException {
         if (!ticket.getValid()) {
-            throw new Exception("fail to get the bag, invalid ticket");
+            throw new InvalidTicketException();
         }
         Box box = boxes.stream()
                 .filter(b -> b.getId() == ticket.getBoxId())
                 .findFirst()
-                .orElseThrow(() -> new Exception("fail to get the bag, wrong ticket"));
+                .orElseThrow(() -> new InvalidTicketException());
         Bag bag = box.get(ticket);
         return bag;
     }
