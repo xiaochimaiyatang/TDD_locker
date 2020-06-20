@@ -4,7 +4,7 @@ import exception.NoEmptyLockerException;
 import java.util.List;
 
 public class PrimaryRobot {
-    private List<Locker> lockers;
+    protected List<Locker> lockers;
 
     public PrimaryRobot(List<Locker> lockers) {
         this.lockers = lockers;

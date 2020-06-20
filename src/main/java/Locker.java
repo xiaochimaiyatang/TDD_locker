@@ -18,7 +18,7 @@ public class Locker {
                 .save(bag);
     }
 
-    public long getAvailableBox() {
+    public Long getAvailableBox() {
         return boxes.stream().filter(box -> box.isAvailable()).count();
     }
 

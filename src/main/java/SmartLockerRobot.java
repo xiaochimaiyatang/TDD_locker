@@ -1,16 +1,18 @@
 import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 
+import java.util.Comparator;
 import java.util.List;
 
-public class SmartLockerRobot extends PrimaryRobot{
+public class SmartLockerRobot extends PrimaryRobot {
     public SmartLockerRobot(List<Locker> lockers) {
         super(lockers);
     }
 
     @Override
     public Ticket save(Bag bag) throws NoEmptyLockerException {
-        return super.save(bag);
+        Locker locker = lockers.stream().max(Comparator.comparing(Locker::getAvailableBox)).get();
+        return locker.save(bag);
     }
 
     @Override
