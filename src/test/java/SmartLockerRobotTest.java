@@ -1,5 +1,7 @@
 import exception.NoEmptyLockerException;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,6 +9,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class SmartLockerRobotTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
 
     @Test
     public void should_save_in_1st_locker_when_locker1_has_2_locker2_has_1() throws NoEmptyLockerException {
@@ -20,7 +25,7 @@ public class SmartLockerRobotTest {
         Ticket ticket = smartLockerRobot.save(bag);
 
         assertEquals("001", ticket.getBoxId());
-        assertEquals(1L, (long)locker1.getAvailableBox());
+        assertEquals(1L, (long) locker1.getAvailableBox());
     }
 
     @Test
@@ -35,7 +40,7 @@ public class SmartLockerRobotTest {
         Ticket ticket = smartLockerRobot.save(bag);
 
         assertEquals("001", ticket.getBoxId());
-        assertEquals(0L, (long)locker1.getAvailableBox());
+        assertEquals(0L, (long) locker1.getAvailableBox());
     }
 
     @Test
@@ -50,8 +55,23 @@ public class SmartLockerRobotTest {
         Ticket ticket = smartLockerRobot.save(bag);
 
         assertEquals("002", ticket.getBoxId());
-        assertEquals(1L, (long)locker2.getAvailableBox());
+        assertEquals(1L, (long) locker2.getAvailableBox());
     }
 
+    @Test
+    public void should_save_in_1st_locker_when_locker1_has_0_locker2_has_0() throws NoEmptyLockerException {
+        List<Box> boxes1 = Arrays.asList();
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList();
+        Locker locker2 = new Locker(boxes2);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1, locker2));
+        Bag bag = new Bag();
+
+        //Then:
+        thrown.expect(NoEmptyLockerException.class);
+        thrown.expectMessage("fail to save the bag, no Empty Box");
+
+        smartLockerRobot.save(bag);
+    }
 
 }
