@@ -25,7 +25,7 @@ public class PrimaryRobot {
                 .map(locker -> {
                     try {
                         return locker.get(ticket);
-                    } catch (Exception e) {
+                    } catch (InvalidTicketException e) {
                         return null;
                     }
                 })

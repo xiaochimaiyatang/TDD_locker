@@ -26,11 +26,9 @@ public class Locker {
         if (!ticket.getValid()) {
             throw new InvalidTicketException();
         }
-        Box box = boxes.stream()
+        return boxes.stream()
                 .filter(b -> b.getId() == ticket.getBoxId())
                 .findFirst()
-                .orElseThrow(() -> new InvalidTicketException());
-        Bag bag = box.get(ticket);
-        return bag;
+                .orElseThrow(() -> new InvalidTicketException()).get(ticket);
     }
 }

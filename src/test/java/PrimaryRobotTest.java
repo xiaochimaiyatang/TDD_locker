@@ -7,7 +7,7 @@ import org.junit.rules.ExpectedException;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 //Given: 三个储物柜都未满 When：使用Primary Robot存包 then： 包存在储物柜1 得到ticket 
@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 //Given: 三个储物柜 一个合法ticket When：使用Primary Robot取包 ， 再次取包then： 第一次成功，第二次失败  
 public class PrimaryRobotTest {
     @Rule
-    public ExpectedException thrown=ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
 
     @Test
@@ -37,7 +37,7 @@ public class PrimaryRobotTest {
 
         //Then:
         assertEquals("001", ticket.getBoxId());
-        assertEquals(1L, (long)locker1.getAvailableBox());
+        assertEquals(1L, (long) locker1.getAvailableBox());
     }
 
 
@@ -59,7 +59,7 @@ public class PrimaryRobotTest {
 
         //Then:
         assertEquals("003", ticket.getBoxId());
-        assertEquals(1L, (long)locker2.getAvailableBox());
+        assertEquals(1L, (long) locker2.getAvailableBox());
     }
 
     @Test

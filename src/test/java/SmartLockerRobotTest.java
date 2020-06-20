@@ -1,4 +1,3 @@
-import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 import org.junit.Rule;
 import org.junit.Test;
