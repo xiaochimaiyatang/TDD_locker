@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LockerTest {
     @Rule
-    public ExpectedException thrown=ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void should_save_bag_successfully_when_have_empty_box() throws NoEmptyLockerException {
@@ -50,7 +50,7 @@ public class LockerTest {
         Bag myBag2 = new Bag();
         locker.save(myBag1);
         locker.save(myBag2);
-        Bag bag=new Bag();
+        Bag bag = new Bag();
 
 //        then:
         thrown.expect(NoEmptyLockerException.class);
