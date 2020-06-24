@@ -139,4 +139,22 @@ public class LockerRobotManagerTest {
         lockerRobotManager.vipSave(bag);
 
     }
+
+    @Test
+    public void should_fail_to_save_when_store_by_RM_given_RM_manage_lockers_full() throws NoEmptyLockerException {
+        //Given:
+        List<Box> boxes1 = Arrays.asList();
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList();
+        Locker locker2 = new Locker(boxes2);
+
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(), Arrays.asList(locker1,locker2));
+        Bag bag = new Bag();
+        //then:
+        thrown.expect(NoEmptyLockerException.class);
+        thrown.expectMessage("fail to save the bag, no Empty Box");
+        //When:
+        lockerRobotManager.vipSave(bag);
+    }
+
 }
