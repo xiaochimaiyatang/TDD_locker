@@ -24,8 +24,8 @@ public class Ticket {
         isValid = false;
     }
 
-    public Ticket prime() {
-        this.ticketType = TicketType.PRIME;
+    public Ticket setTicketType(TicketType ticketType) {
+        this.ticketType = ticketType;
         return this;
     }
 }

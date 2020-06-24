@@ -17,9 +17,9 @@ public class LockerRobotManager extends BasicLockerRobot {
                 .filter(r -> r.getAbility() > 0)
                 .findFirst();
         if (robotOptional.isPresent()) {
-            return robotOptional.get().save(bag).prime();
+            return robotOptional.get().save(bag).setTicketType(TicketType.PRIME);
         }
-        return this.save(bag).prime();
+        return this.save(bag).setTicketType(TicketType.PRIME);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class LockerRobotManager extends BasicLockerRobot {
         Optional<Bag> bagOptional = basicLockerRobots.stream()
                 .map(robot -> {
                     try {
-                        return robot.get(ticket);
+                        return robot.get(ticket.setTicketType(TicketType.GENERAL));
                     } catch (InvalidTicketException e) {
                         return null;
                     }
@@ -44,6 +44,6 @@ public class LockerRobotManager extends BasicLockerRobot {
         if (bagOptional.isPresent()) {
             return bagOptional.get();
         }
-        return this.get(ticket);
+        return this.get(ticket.setTicketType(TicketType.PRIME));
     }
 }

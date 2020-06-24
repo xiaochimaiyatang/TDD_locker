@@ -271,7 +271,7 @@ public class LockerRobotManagerTest {
         LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(smartLockerRobot), Arrays.asList(locker2));
         Bag bag = new Bag();
         smartLockerRobot.save(bag);
-        Ticket ticket = new Ticket("invalid").prime();
+        Ticket ticket = new Ticket("invalid").setTicketType(TicketType.PRIME);
         //Then:
         thrown.expect(InvalidTicketException.class);
         thrown.expectMessage("fail to get the bag, invalid ticket");
