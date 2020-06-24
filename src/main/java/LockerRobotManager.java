@@ -1,3 +1,4 @@
+import com.sun.istack.internal.NotNull;
 import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 
@@ -7,7 +8,7 @@ import java.util.Optional;
 public class LockerRobotManager extends BasicLockerRobot {
     private List<BasicLockerRobot> basicLockerRobots;
 
-    public  LockerRobotManager(List<BasicLockerRobot> lockerRobotList, List<Locker> lockerList) {
+    public LockerRobotManager(List<BasicLockerRobot> lockerRobotList, List<Locker> lockerList) {
         super(lockerList);
         this.basicLockerRobots = lockerRobotList;
     }
@@ -27,8 +28,17 @@ public class LockerRobotManager extends BasicLockerRobot {
         return super.save(bag);
     }
 
-    @Override
-    public Bag get(Ticket ticket) throws InvalidTicketException {
-        return super.get(ticket);
+    public Bag vipGet(Ticket ticket) throws InvalidTicketException {
+        Bag bag = basicLockerRobots.stream()
+                .map(robot -> {
+                    try {
+                        return robot.get(ticket);
+                    } catch (InvalidTicketException e) {
+                        return null;
+                    }
+                })
+                .filter(b -> b != null)
+                .findFirst().get();
+        return bag;
     }
 }

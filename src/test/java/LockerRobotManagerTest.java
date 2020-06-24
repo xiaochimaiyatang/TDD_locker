@@ -1,3 +1,4 @@
+import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 import org.junit.Rule;
 import org.junit.Test;
@@ -148,7 +149,7 @@ public class LockerRobotManagerTest {
         List<Box> boxes2 = Arrays.asList();
         Locker locker2 = new Locker(boxes2);
 
-        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(), Arrays.asList(locker1,locker2));
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(), Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         //then:
         thrown.expect(NoEmptyLockerException.class);
@@ -157,4 +158,21 @@ public class LockerRobotManagerTest {
         lockerRobotManager.vipSave(bag);
     }
 
+    @Test
+    public void should_get_bag_from_locker1_when_get_by_RM_given_ticket_is_from_RM() throws NoEmptyLockerException, InvalidTicketException {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("005"), new Box("006"));
+        Locker locker2 = new Locker(boxes2);
+        PrimaryLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1));
+
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(primaryRobot), Arrays.asList(locker2));
+        Bag bag = new Bag();
+        Ticket ticket = lockerRobotManager.vipSave(bag);
+        //When:
+        Bag myBag = lockerRobotManager.vipGet(ticket);
+        //Then:
+        assertEquals(myBag, bag);
+    }
 }
