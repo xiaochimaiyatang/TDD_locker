@@ -18,8 +18,8 @@ public class Locker {
                 .save(bag);
     }
 
-    public Long getAvailableBox() {
-        return boxes.stream().filter(box -> box.isAvailable()).count();
+    public Integer getAvailableBox() {
+        return Math.toIntExact(boxes.stream().filter(box -> box.isAvailable()).count());
     }
 
     public Bag get(Ticket ticket) throws InvalidTicketException {

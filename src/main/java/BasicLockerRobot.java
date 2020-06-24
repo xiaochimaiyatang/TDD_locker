@@ -32,4 +32,10 @@ public class BasicLockerRobot {
                 .findFirst()
                 .orElseThrow(() -> new InvalidTicketException());
     }
+
+    public Integer getAbility() {
+        return lockers.stream()
+                .mapToInt(Locker::getAvailableBox)
+                .sum();
+    }
 }

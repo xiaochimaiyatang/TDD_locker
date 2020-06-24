@@ -37,7 +37,7 @@ public class PrimaryRobotTest {
 
         //Then:
         assertEquals("001", ticket.getBoxId());
-        assertEquals(1L, (long) locker1.getAvailableBox());
+        assertEquals(1, (int) locker1.getAvailableBox());
     }
 
 
@@ -59,7 +59,7 @@ public class PrimaryRobotTest {
 
         //Then:
         assertEquals("003", ticket.getBoxId());
-        assertEquals(1L, (long) locker2.getAvailableBox());
+        assertEquals(1, (int) locker2.getAvailableBox());
     }
 
     @Test

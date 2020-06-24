@@ -26,7 +26,7 @@ public class SmartLockerRobotTest {
         Ticket ticket = smartLockerRobot.save(bag);
 
         assertEquals("001", ticket.getBoxId());
-        assertEquals(1L, (long) locker1.getAvailableBox());
+        assertEquals(1, (int) locker1.getAvailableBox());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class SmartLockerRobotTest {
         Ticket ticket = smartLockerRobot.save(bag);
 
         assertEquals("001", ticket.getBoxId());
-        assertEquals(0L, (long) locker1.getAvailableBox());
+        assertEquals(0, (int) locker1.getAvailableBox());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class SmartLockerRobotTest {
         Ticket ticket = smartLockerRobot.save(bag);
 
         assertEquals("002", ticket.getBoxId());
-        assertEquals(1L, (long) locker2.getAvailableBox());
+        assertEquals(1, (int) locker2.getAvailableBox());
     }
 
     @Test
