@@ -1,4 +1,3 @@
-import com.sun.istack.internal.NotNull;
 import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 
@@ -29,6 +28,9 @@ public class LockerRobotManager extends BasicLockerRobot {
     }
 
     public Bag vipGet(Ticket ticket) throws InvalidTicketException {
+        if (ticket.getTicketType() != TicketType.PRIME) {
+            throw new InvalidTicketException("fail to get the bag, please get bag from Locker Manager Robot");
+        }
         Optional<Bag> bagOptional = basicLockerRobots.stream()
                 .map(robot -> {
                     try {

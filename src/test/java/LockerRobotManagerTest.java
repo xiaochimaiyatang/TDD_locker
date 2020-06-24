@@ -238,4 +238,48 @@ public class LockerRobotManagerTest {
         assertEquals(myBag, bag);
 
     }
+
+    @Test
+    public void should_fail_to_get_bag_when_get_by_RM_given_ticket_is_from_SR() throws NoEmptyLockerException, InvalidTicketException {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("005"), new Box("006"));
+        Locker locker2 = new Locker(boxes2);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1));
+
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(smartLockerRobot), Arrays.asList(locker2));
+        Bag bag = new Bag();
+        Ticket ticket = smartLockerRobot.save(bag);
+        //Then:
+        thrown.expect(InvalidTicketException.class);
+        thrown.expectMessage("fail to get the bag, please get bag from Locker Manager Robot");
+        //When:
+        lockerRobotManager.vipGet(ticket);
+        //Then:
+    }
+
+    @Test
+    public void should_fail_to_get_bag_when_get_by_RM_given_ticket_is_invalid() throws NoEmptyLockerException, InvalidTicketException {
+        //Given:
+        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("005"), new Box("006"));
+        Locker locker2 = new Locker(boxes2);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1));
+
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(smartLockerRobot), Arrays.asList(locker2));
+        Bag bag = new Bag();
+        smartLockerRobot.save(bag);
+        Ticket ticket = new Ticket("invalid").prime();
+        //Then:
+        thrown.expect(InvalidTicketException.class);
+        thrown.expectMessage("fail to get the bag, invalid ticket");
+        //When:
+        lockerRobotManager.vipGet(ticket);
+        //Then:
+    }
+
 }
+
+
