@@ -29,7 +29,7 @@ public class LockerRobotManager extends BasicLockerRobot {
     }
 
     public Bag vipGet(Ticket ticket) throws InvalidTicketException {
-        Bag bag = basicLockerRobots.stream()
+        Optional<Bag> bagOptional = basicLockerRobots.stream()
                 .map(robot -> {
                     try {
                         return robot.get(ticket);
@@ -38,7 +38,10 @@ public class LockerRobotManager extends BasicLockerRobot {
                     }
                 })
                 .filter(b -> b != null)
-                .findFirst().get();
-        return bag;
+                .findFirst();
+        if (bagOptional.isPresent()) {
+            return bagOptional.get();
+        }
+        return this.get(ticket);
     }
 }
