@@ -30,7 +30,7 @@ public class PrimaryRobotTest {
         Locker locker2 = new Locker(boxes2);
         List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
         Locker locker3 = new Locker(boxes3);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2, locker3));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2, locker3));
         Bag bag = new Bag();
         //When:
         Ticket ticket = primaryRobot.save(bag);
@@ -50,7 +50,7 @@ public class PrimaryRobotTest {
         Locker locker2 = new Locker(boxes2);
         List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
         Locker locker3 = new Locker(boxes3);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2, locker3));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2, locker3));
         Bag bag = new Bag();
         primaryRobot.save(bag);
         primaryRobot.save(bag);
@@ -69,7 +69,7 @@ public class PrimaryRobotTest {
         Locker locker1 = new Locker(boxes1);
         List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
         Locker locker2 = new Locker(boxes2);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         Ticket ticket = primaryRobot.save(bag);
         //When:
@@ -85,7 +85,7 @@ public class PrimaryRobotTest {
         Locker locker1 = new Locker(boxes1);
         List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
         Locker locker2 = new Locker(boxes2);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         Ticket ticket = smartLockerRobot.save(bag);
@@ -103,7 +103,7 @@ public class PrimaryRobotTest {
         Locker locker1 = new Locker(boxes1);
         List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
         Locker locker2 = new Locker(boxes2);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         primaryRobot.save(bag);
         primaryRobot.save(bag);
@@ -125,7 +125,7 @@ public class PrimaryRobotTest {
         Locker locker1 = new Locker(boxes1);
         List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
         Locker locker2 = new Locker(boxes2);
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         primaryRobot.save(bag);
         Ticket invalidTicket = new Ticket("invalid ticket");

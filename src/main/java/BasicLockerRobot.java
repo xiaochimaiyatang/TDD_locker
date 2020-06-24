@@ -3,12 +3,11 @@ import exception.NoEmptyLockerException;
 
 import java.util.List;
 
-public class PrimaryRobot {
+public class BasicLockerRobot {
     protected List<Locker> lockers;
 
-    public PrimaryRobot(List<Locker> lockers) {
+    public BasicLockerRobot(List<Locker> lockers) {
         this.lockers = lockers;
-
     }
 
     public Ticket save(Bag bag) throws NoEmptyLockerException {

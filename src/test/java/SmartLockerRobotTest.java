@@ -82,7 +82,7 @@ public class SmartLockerRobotTest {
         List<Box> boxes2 = Arrays.asList();
         Locker locker2 = new Locker(boxes2);
         SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1, locker2));
-        PrimaryRobot primaryRobot = new PrimaryRobot(Arrays.asList(locker1, locker2));
+        BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         Ticket ticket = primaryRobot.save(bag);
 
