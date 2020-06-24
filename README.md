@@ -53,5 +53,21 @@ Given: 三个储物柜 一个合法ticket When：使用Primary Robot取包 ， �
     - Given: 三个储物柜 一个由Primary Robot得到的有效ticket When：使用 smartLockerRobot 取包 then： 得到存的包且ticket作废 
     - Given: 三个储物柜 一个由smartLockerRobot得到的有效ticket When：使用 Primary Robot 取包 then： 得到存的包且ticket作废 
     - Given: 三个储物柜 一个无效ticket When：使用 smartLockerRobot 取包 then： 票据不合法，取包失败   
+--------------------------------------------
+PR:Primary Robot, SR：smartLockerRobot, RM: Locker Robot Manager
+1. 存:
+    - 1Given：ABCD四个储物柜分别有1，2，3，4个存储空间，RM管理PR（管理AB储物柜），SR（管理BC储物柜） 以及 D储物柜。When vip用户找RM存包。 Then：包由PR管理的A柜子存储 且得到ticket。 
+    - 2Given：ABCD四个储物柜分别有0，2，3，4个存储空间，RM管理PR（管理A储物柜），SR（管理BC储物柜） 以及 D储物柜。When vip用户找RM存包。 Then：包由SR管理的C柜子存储 且得到ticket。 
+    - 3Given：ABCD四个储物柜分别有0，0，0，4个存储空间，RM管理PR（管理A储物柜），SR（管理BC储物柜） 以及 D储物柜。When vip用户找RM存包。 Then：包由RM管理的D柜子存储 且得到ticket。 
+    - 4Given：ABCD四个储物柜分别有0，0，0，4个存储空间，RM管理PR 以及 D储物柜。When vip用户找RM存包。 Then：包由RM管理的D柜子存储 且得到ticket。 
+    - 5Given：有储物柜A具有3个空间，RM管理储物柜A。When vip用户找RM存包。 Then：包存储在A柜子存储 且得到ticket。
+    - 6Given：ABCD四个储物柜分别有0，0，0，0个存储空间，RM管理PR（管理A储物柜），SR（管理BC储物柜） 以及 D储物柜。When vip用户找RM存包。 Then：存包失败，柜箱已满。 
+    - 7Given：有储物柜A具有0个空间，RM管理储物柜A。When vip用户找RM存包。 Then：存包失败，柜箱已满。
+
+2. 取:
+    - 8Given: 有一个由RM存储包后得到的ticket。 When vip用户使用该ticket找RM取包。 Then：得到存的包且ticket作废。
+    - 9Given: 有一个由RM存储包后得到的ticket。 When vip用户使用该ticket找PR取包。 Then：票据不合法，取包失败。
+    - 10Given: 有一个由RM存储包后得到的ticket。 When vip用户使用该ticket找SR取包。 Then：票据不合法，取包失败。
+    - 11Given: 有一个非法ticket。 When vip用户使用该ticket找RM取包。 Then：票据不合法，取包失败。
 
 
