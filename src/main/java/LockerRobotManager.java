@@ -18,9 +18,9 @@ public class LockerRobotManager extends BasicLockerRobot {
                 .filter(r -> r.getAbility() > 0)
                 .findFirst();
         if (robotOptional.isPresent()) {
-            return robotOptional.get().save(bag);
+            return robotOptional.get().save(bag).prime();
         }
-        return this.save(bag);
+        return this.save(bag).prime();
     }
 
     @Override
