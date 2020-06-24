@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
 public class LockerRobotManagerTest {
     //PR:Primary Robot, SR：smartLockerRobot, RM: Locker Robot Manager
     @Test
-    public void should_save_in_lockerA_when_store_by_RM_given_RM_manage_PR_SR_locker() throws NoEmptyLockerException {
+    public void should_save_in_locker1_when_store_by_RM_given_RM_manage_PR_notFull_SR_notFull_locker() throws NoEmptyLockerException {
         //Given:
         List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
         Locker locker1 = new Locker(boxes1);
@@ -38,11 +38,57 @@ public class LockerRobotManagerTest {
         LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(primaryRobot, smartLockerRobot), Arrays.asList(locker3));
         Bag bag = new Bag();
         //When:
-        Ticket ticket = lockerRobotManager.save(bag);
+        Ticket ticket = lockerRobotManager.vipSave(bag);
 
         //Then:
         assertEquals("001", ticket.getBoxId());
         assertEquals(1, (int)locker1.getAvailableBox());
+
+    }
+
+    @Test
+    public void should_save_in_locker2_when_store_by_RM_given_RM_manage_PR_full_SR_notFull_locker() throws NoEmptyLockerException {
+        //Given:
+        List<Box> boxes1 = Arrays.asList();
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
+        Locker locker2 = new Locker(boxes2);
+        List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
+        Locker locker3 = new Locker(boxes3);
+        PrimaryLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1));
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker2));
+
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(primaryRobot, smartLockerRobot), Arrays.asList(locker3));
+        Bag bag = new Bag();
+        //When:
+        Ticket ticket = lockerRobotManager.vipSave(bag);
+
+        //Then:
+        assertEquals("003", ticket.getBoxId());
+        assertEquals(1, (int)locker2.getAvailableBox());
+
+    }
+
+    @Test
+    public void should_save_in_locker3_when_store_by_RM_given_RM_manage_PR_full_SR_full_locker() throws NoEmptyLockerException {
+        //Given:
+        List<Box> boxes1 = Arrays.asList();
+        Locker locker1 = new Locker(boxes1);
+        List<Box> boxes2 = Arrays.asList();
+        Locker locker2 = new Locker(boxes2);
+        List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
+        Locker locker3 = new Locker(boxes3);
+        PrimaryLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1));
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker2));
+
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(primaryRobot, smartLockerRobot), Arrays.asList(locker3));
+        Bag bag = new Bag();
+        //When:
+        Ticket ticket = lockerRobotManager.vipSave(bag);
+
+        //Then:
+        assertEquals("005", ticket.getBoxId());
+        assertEquals(1, (int)locker3.getAvailableBox());
 
     }
 }
