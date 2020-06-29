@@ -20,7 +20,6 @@ given无效票，when取包，then取包失败，提示无效票
 
 given重复票，when取包，then取包失败，提示无效票
 
-
 ------------------------------------------
 实现PrimaryLockerRobot可以存包，取包
 作业要求
@@ -71,5 +70,21 @@ PR:Primary Robot, SR：smartLockerRobot, RM: Locker Robot Manager
     - 10Given: 有一个由RM存储包后得到的ticket。 When vip用户使用该ticket找SR取包。 Then：票据不合法，取包失败。
     - 10Given: 有一个由PR存储包后得到的ticket。 When vip用户使用该ticket找SR取包。 Then：票据不合法，取包失败。
     - 11Given: 有一个非法ticket。 When vip用户使用该ticket找RM取包。 Then：票据不合法，取包失败。
+
+---------------------------
+
+![mind](./Task/mind.png)
+PR:Primary Robot, SR：smartLockerRobot, RM: Locker Robot Manager， RD：Locker Robot Director
+
+
+| Given | When  | Then  |
+|---|---|---|
+| Locker1 (共10个，2个剩余);<br>PR1（管理Lokcer1）；<br>RM1管理PR1，<br> RD1管理RM1 | 当PM使用RD1打印报表  | ![OnlyPrimary](./Task/OnlyPrimary.png) |
+| Locker1 (共10个，2个剩余);<br>SR1（管理Lokcer1）；<br>RM1管理SR1，<br> RD1管理RM1 | 当PM使用RD1打印报表  | ![OnlyPrimary](./Task/OnlyPrimary.png) |
+| Locker1 (共10个，2个剩余)，Locker2（共5个，1个剩余），Locker3（共8个，3个剩余);<br>SR1（管理Lokcer1），PR1(管理locker3的)；<br>RM1管理SR1，<br> RD1管理RM1 | 当PM使用RD1打印报表  | ![OnlyPrimary](./Task/OnlyPrimary.png) |
+| Locker1 (共10个，2个剩余);<br>RM1管理Locker1，<br> RD1管理RM1   | 当PM使用RD1打印报表  |  ![onlyLocker](Task/onlyLocker.png) |
+| Locker1（共10个，2个剩余），Locker2（共5个，1个剩余）Locker3（共8个，3个剩余);<br>SR1(管理locker2的),PR1(管理locker3的);<br>RM1( 管理locker1 ,SR1, PR1)；<br>RD1(管理RM1) |  当PM使用RD1打印报表 | ![PrimarySmartLocker](Task/PrimarySmartLocker.png)  |
+| Locker1（共10个，2个剩余），Locker2（共5个，1个剩余）Locker3（共8个，3个剩余）;<br>SR1(管理locker2),PR1(管理locker3的);<br>RM1( 管理locker1,SR1), RM2(PR1)；<br>RD1(管理RM1) |  当PM使用RD1打印报表 | ![TwoManagers](./Task/TwoManagers.png)  |
+
 
 
