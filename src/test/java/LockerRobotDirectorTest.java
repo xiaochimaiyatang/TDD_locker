@@ -21,6 +21,19 @@ public class LockerRobotDirectorTest {
         assertEquals(expectReport, report);
     }
 
+    @Test
+    public void should_report_when_print_given_manage_smart_robot() throws NoEmptyLockerException {
+        SmartLockerRobot smartLockerRobot = buildSmartLockerRobot();
+        LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(smartLockerRobot), Arrays.asList());
+        LockerRobotDirector lockerRobotDirector = new LockerRobotDirector(Arrays.asList(lockerRobotManager));
+
+        String report = lockerRobotDirector.report();
+        String expectReport = "M 2 3\n" +
+                "\tR 2 3\n" +
+                "\t\tL 2 3";
+        assertEquals(expectReport, report);
+    }
+
     private PrimaryLockerRobot buildPrimaryLockerRobot() throws NoEmptyLockerException {
         Locker locker1 = new Locker(2);
         PrimaryLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1));
