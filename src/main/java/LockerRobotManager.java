@@ -50,6 +50,9 @@ public class LockerRobotManager extends BasicLockerRobot {
     public String report() {
 
         String report = "M " + availableRooms() + " " + capability();
+        for (Locker locker : lockers) {
+            report += "\n\tL " + locker.getAvailableRoom() + " " + locker.getCapacity();
+        }
         for (BasicLockerRobot robot : basicLockerRobots) {
             report += "\n\tR " + robot.getAvailableRoom() + " " + robot.getCapacity() ;
             for (Locker locker : robot.lockers) {

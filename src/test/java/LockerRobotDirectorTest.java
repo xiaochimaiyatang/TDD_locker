@@ -3,7 +3,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LockerRobotDirectorTest {
 
@@ -35,7 +35,7 @@ public class LockerRobotDirectorTest {
     }
 
     @Test
-    public void should_report_when_print_given_manage_locker() throws NoEmptyLockerException {
+    public void should_report_when_print_given_manage_locker() {
         Locker locker1 = new Locker(2);
         LockerRobotManager lockerRobotManager = new LockerRobotManager(Arrays.asList(), Arrays.asList(locker1));
         LockerRobotDirector lockerRobotDirector = new LockerRobotDirector(Arrays.asList(lockerRobotManager));
