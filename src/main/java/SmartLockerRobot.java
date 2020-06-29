@@ -11,7 +11,7 @@ public class SmartLockerRobot extends BasicLockerRobot {
 
     @Override
     public Ticket save(Bag bag) throws NoEmptyLockerException {
-        Locker locker = lockers.stream().max(Comparator.comparing(Locker::getAvailableBox)).get();
+        Locker locker = lockers.stream().max(Comparator.comparing(Locker::getAvailableRoom)).get();
         return locker.save(bag);
     }
 

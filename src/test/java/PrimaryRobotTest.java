@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 //Given: 三个储物柜都未满 When：使用Primary Robot存包 then： 包存在储物柜1 得到ticket 
@@ -24,32 +24,27 @@ public class PrimaryRobotTest {
     @Test
     public void should_save_in_first_locker_when_every_locker_is_not_full() throws NoEmptyLockerException {
         //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
-        List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
-        Locker locker3 = new Locker(boxes3);
+
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
+        Locker locker3 = new Locker(2);
         BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2, locker3));
         Bag bag = new Bag();
         //When:
         Ticket ticket = primaryRobot.save(bag);
 
         //Then:
-        assertEquals("001", ticket.getBoxId());
-        assertEquals(1, (int) locker1.getAvailableBox());
+        assertNotNull(ticket);
+        assertEquals(1, (int) locker1.getAvailableRoom());
     }
 
 
     @Test
     public void should_save_in_second_locker_when_1st_is_full_but_2ndAnd3rd_locker_is_not_full() throws NoEmptyLockerException {
         //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
-        List<Box> boxes3 = Arrays.asList(new Box("005"), new Box("006"));
-        Locker locker3 = new Locker(boxes3);
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
+        Locker locker3 = new Locker(2);
         BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2, locker3));
         Bag bag = new Bag();
         primaryRobot.save(bag);
@@ -58,17 +53,15 @@ public class PrimaryRobotTest {
         Ticket ticket = primaryRobot.save(bag);
 
         //Then:
-        assertEquals("003", ticket.getBoxId());
-        assertEquals(1, (int) locker2.getAvailableBox());
+        assertNotNull(ticket);
+        assertEquals(1, (int) locker2.getAvailableRoom());
     }
 
     @Test
     public void should_get_my_bag_successfully_when_ticket_is_valid() throws NoEmptyLockerException, InvalidTicketException {
         //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
         BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         Ticket ticket = primaryRobot.save(bag);
@@ -81,10 +74,8 @@ public class PrimaryRobotTest {
     @Test
     public void should_get_my_bag_successfully_when_ticket_is_valid_from_smart_robot() throws NoEmptyLockerException, InvalidTicketException {
         //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
         BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
@@ -99,10 +90,8 @@ public class PrimaryRobotTest {
     @Test
     public void should_fail_to_save_in_when_lockers_are_full() throws NoEmptyLockerException {
         //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
         BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         primaryRobot.save(bag);
@@ -121,14 +110,12 @@ public class PrimaryRobotTest {
     @Test
     public void should_fail_to_get_my_bag_when_ticket_is_invalid() throws NoEmptyLockerException, InvalidTicketException {
         //Given:
-        List<Box> boxes1 = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker1 = new Locker(boxes1);
-        List<Box> boxes2 = Arrays.asList(new Box("003"), new Box("004"));
-        Locker locker2 = new Locker(boxes2);
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
         BasicLockerRobot primaryRobot = new PrimaryLockerRobot(Arrays.asList(locker1, locker2));
         Bag bag = new Bag();
         primaryRobot.save(bag);
-        Ticket invalidTicket = new Ticket("invalid ticket");
+        Ticket invalidTicket = new Ticket();
 
         //Then:
         thrown.expect(InvalidTicketException.class);

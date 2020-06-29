@@ -4,10 +4,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class LockerTest {
     @Rule
@@ -15,20 +13,18 @@ public class LockerTest {
 
     @Test
     public void should_save_bag_successfully_when_have_empty_box() throws NoEmptyLockerException {
-        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker = new Locker(box);
+        Locker locker = new Locker(4);
         Bag bag = new Bag();
         Ticket ticket = locker.save(bag);
-        assertEquals("001", ticket.getBoxId());
-        assertEquals(1, (int)locker.getAvailableBox());
+        assertNotNull(ticket);
+        assertEquals(3, (int) locker.getAvailableRoom());
     }
 
 
     @Test
     public void should_get_bag_successfully_when_have_correct_ticket() throws NoEmptyLockerException, InvalidTicketException {
         //given
-        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker = new Locker(box);
+        Locker locker = new Locker(2);
         Bag myBag = new Bag();
         Ticket ticket = locker.save(myBag);
 
@@ -37,15 +33,13 @@ public class LockerTest {
 
         //then
         assertEquals(bag, myBag);
-        assertEquals(2, (int) locker.getAvailableBox());
 
     }
 
     @Test
     public void should_save_unsuccessfully_when_have_no_empty_box() throws NoEmptyLockerException {
 //        given:
-        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker = new Locker(box);
+        Locker locker = new Locker(2);
         Bag myBag1 = new Bag();
         Bag myBag2 = new Bag();
         locker.save(myBag1);
@@ -63,11 +57,10 @@ public class LockerTest {
     @Test
     public void should_get_bag_unsuccessfully_when_have_wrong_ticket() throws NoEmptyLockerException, InvalidTicketException {
 //        given:
-        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker = new Locker(box);
+        Locker locker = new Locker(2);
         Bag bag = new Bag();
         locker.save(bag);
-        Ticket wrongTicket = new Ticket("wrong id");
+        Ticket wrongTicket = new Ticket();
 
 //        then:
         thrown.expect(InvalidTicketException.class);
@@ -79,8 +72,7 @@ public class LockerTest {
     @Test
     public void should_fail_get_bag_when_use_ticket_twice() throws NoEmptyLockerException, InvalidTicketException {
         //given
-        List<Box> box = Arrays.asList(new Box("001"), new Box("002"));
-        Locker locker = new Locker(box);
+        Locker locker = new Locker(2);
         Bag myBag = new Bag();
         Ticket ticket = locker.save(myBag);
         locker.get(ticket);

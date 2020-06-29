@@ -1,34 +1,37 @@
 import exception.InvalidTicketException;
 import exception.NoEmptyLockerException;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Locker {
-    private List<Box> boxes;
+    private Map<Ticket, Bag> ticketBagMap = new HashMap<>();
 
-    public Locker(List<Box> boxes) {
-        this.boxes = boxes;
+    private Integer capacity;
+
+    public Locker(Integer capacity) {
+        this.capacity = capacity;
     }
 
     public Ticket save(Bag bag) throws NoEmptyLockerException {
-        return boxes.stream()
-                .filter(b -> b.isAvailable())
-                .findFirst()
-                .orElseThrow(() -> new NoEmptyLockerException())
-                .save(bag);
+        if (ticketBagMap.size() >= capacity) {
+            throw new NoEmptyLockerException();
+        }
+        Ticket ticket = new Ticket();
+        ticketBagMap.put(ticket, bag);
+        return ticket;
     }
 
-    public Integer getAvailableBox() {
-        return Math.toIntExact(boxes.stream().filter(box -> box.isAvailable()).count());
+    public Integer getAvailableRoom() {
+        return this.capacity - ticketBagMap.size();
     }
 
     public Bag get(Ticket ticket) throws InvalidTicketException {
-        if (!ticket.getValid()) {
-            throw new InvalidTicketException();
+        Bag bag = ticketBagMap.get(ticket);
+        if (bag != null) {
+            ticketBagMap.remove(ticket);
+            return bag;
         }
-        return boxes.stream()
-                .filter(b -> b.getId() == ticket.getBoxId())
-                .findFirst()
-                .orElseThrow(() -> new InvalidTicketException()).get(ticket);
+        throw new InvalidTicketException();
     }
 }

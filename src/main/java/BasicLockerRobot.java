@@ -13,7 +13,7 @@ public class BasicLockerRobot {
     public Ticket save(Bag bag) throws NoEmptyLockerException {
 
         return lockers.stream()
-                .filter(locker -> locker.getAvailableBox() != 0)
+                .filter(locker -> locker.getAvailableRoom() != 0)
                 .findFirst()
                 .orElseThrow(() -> new NoEmptyLockerException())
                 .save(bag);
@@ -35,7 +35,7 @@ public class BasicLockerRobot {
 
     public Integer getAbility() {
         return lockers.stream()
-                .mapToInt(Locker::getAvailableBox)
+                .mapToInt(Locker::getAvailableRoom)
                 .sum();
     }
 }
