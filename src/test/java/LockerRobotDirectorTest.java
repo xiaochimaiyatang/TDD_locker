@@ -17,7 +17,7 @@ public class LockerRobotDirectorTest {
         String report = lockerRobotDirector.report();
         String expectReport = "M 1 2\n" +
                 "\tR 1 2\n" +
-                "\t\tL 1 2";
+                "\t\tL 1 2\n";
         assertEquals(expectReport, report);
     }
 
@@ -30,7 +30,7 @@ public class LockerRobotDirectorTest {
         String report = lockerRobotDirector.report();
         String expectReport = "M 2 3\n" +
                 "\tR 2 3\n" +
-                "\t\tL 2 3";
+                "\t\tL 2 3\n";
         assertEquals(expectReport, report);
     }
 
@@ -42,7 +42,7 @@ public class LockerRobotDirectorTest {
 
         String report = lockerRobotDirector.report();
         String expectReport = "M 2 2\n" +
-                "\tL 2 2";
+                "\tL 2 2\n";
         assertEquals(expectReport, report);
     }
 
@@ -60,10 +60,28 @@ public class LockerRobotDirectorTest {
                 "\tR 2 3\n" +
                 "\t\tL 2 3\n"+
                 "\tR 1 2\n"+
-                "\t\tL 1 2";
+                "\t\tL 1 2\n";
         assertEquals(expectReport, report);
     }
 
+    @Test
+    public void should_report_when_print_given_two_manages() throws NoEmptyLockerException {
+        SmartLockerRobot smartLockerRobot = buildSmartLockerRobot();
+        Locker locker1 = new Locker(2);
+        Locker locker2 = new Locker(2);
+        LockerRobotManager lockerRobotManager1 = new LockerRobotManager(Arrays.asList(smartLockerRobot), Arrays.asList(locker1));
+        LockerRobotManager lockerRobotManager2 = new LockerRobotManager(Arrays.asList(), Arrays.asList(locker2));
+        LockerRobotDirector lockerRobotDirector = new LockerRobotDirector(Arrays.asList(lockerRobotManager1,lockerRobotManager2));
+
+        String report = lockerRobotDirector.report();
+        String expectReport = "M 4 5\n" +
+                "\tL 2 2\n"+
+                "\tR 2 3\n" +
+                "\t\tL 2 3\n"+
+                "M 2 2\n"+
+                "\tL 2 2\n";
+        assertEquals(expectReport, report);
+    }
 
     private PrimaryLockerRobot buildPrimaryLockerRobot() throws NoEmptyLockerException {
         Locker locker1 = new Locker(2);

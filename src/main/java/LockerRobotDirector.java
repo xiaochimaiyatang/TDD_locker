@@ -9,7 +9,7 @@ public class LockerRobotDirector {
     public String report() {
         String report = "";
         for (LockerRobotManager lockerRobotManager : lockerRobotManagerList) {
-            report += lockerRobotManager.report();
+            report += lockerRobotManager.report()+"\n";
         }
         return report;
     }

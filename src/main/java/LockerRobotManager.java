@@ -47,7 +47,7 @@ public class LockerRobotManager extends BasicLockerRobot {
         return this.get(ticket.setTicketType(TicketType.PRIME));
     }
 
-    public String report() {
+public String report() {
 
         String report = "M " + availableRooms() + " " + capability();
         for (Locker locker : lockers) {
