@@ -34,4 +34,8 @@ public class Locker {
         }
         throw new InvalidTicketException();
     }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
 }

@@ -33,9 +33,15 @@ public class BasicLockerRobot {
                 .orElseThrow(() -> new InvalidTicketException());
     }
 
-    public Integer getAbility() {
+    public Integer getAvailableRoom() {
         return lockers.stream()
                 .mapToInt(Locker::getAvailableRoom)
+                .sum();
+    }
+
+    public Integer getCapacity() {
+        return lockers.stream()
+                .mapToInt(Locker::getCapacity)
                 .sum();
     }
 }

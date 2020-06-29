@@ -14,7 +14,7 @@ public class LockerRobotManager extends BasicLockerRobot {
 
     public Ticket vipSave(Bag bag) throws NoEmptyLockerException {
         Optional<BasicLockerRobot> robotOptional = basicLockerRobots.stream()
-                .filter(r -> r.getAbility() > 0)
+                .filter(r -> r.getAvailableRoom() > 0)
                 .findFirst();
         if (robotOptional.isPresent()) {
             return robotOptional.get().save(bag).setTicketType(TicketType.PRIME);
@@ -45,5 +45,27 @@ public class LockerRobotManager extends BasicLockerRobot {
             return bagOptional.get();
         }
         return this.get(ticket.setTicketType(TicketType.PRIME));
+    }
+
+    public String report() {
+
+        String report = "M " + availableRooms() + " " + capability();
+        for (BasicLockerRobot robot : basicLockerRobots) {
+            report += "\n\tR " + robot.getAvailableRoom() + " " + robot.getCapacity() ;
+            for (Locker locker : robot.lockers) {
+                report += "\n\t\tL " + locker.getAvailableRoom() + " " + locker.getCapacity();
+            }
+        }
+        return report;
+    }
+
+    private Integer capability() {
+        return this.lockers.stream().mapToInt(Locker::getCapacity).sum() +
+                this.basicLockerRobots.stream().mapToInt(BasicLockerRobot::getCapacity).sum();
+    }
+
+    private Integer availableRooms() {
+        return this.lockers.stream().mapToInt(Locker::getAvailableRoom).sum() +
+                this.basicLockerRobots.stream().mapToInt(BasicLockerRobot::getAvailableRoom).sum();
     }
 }
